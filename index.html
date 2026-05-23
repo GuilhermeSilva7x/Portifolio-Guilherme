@@ -113,15 +113,15 @@
         Entre em contato
     </h2>
 
-    <form class="formulario-contato" id="formulario">
+    <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
 
         <div class="grupo-form">
-            <input placeholder="Nome" class="campo-form">
+            <input placeholder="Nome" class="campo-form" id="nome">
         </div>
 
         <div class="grupo-form">
             <textarea class="campo-form"
-            placeholder="Digite sua mensagem"></textarea>
+            placeholder="Digite sua mensagem" rows="4" id="mensagem"></textarea>
         </div>
 
         <button type="submit" class="botao-form">

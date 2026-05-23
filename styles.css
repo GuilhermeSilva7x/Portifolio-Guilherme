@@ -1,6 +1,3 @@
-/* ==========================================================================
-   1. ESTILOS GERAIS E VARIÁVEIS (Base para PC e Celular)
-   ========================================================================== */
 *{
     margin: 0;
     padding: 0;
@@ -25,10 +22,7 @@ body{
     background-color: var(--escuro);
     color: var(--claro);
 }
-
-/* ==========================================================================
-   2. NAVEGAÇÃO / MENU
-   ========================================================================== */
+   /*2. NAVEGAÇÃO / MENU */
 .navegacao{
     position: fixed;
     top: 0;
@@ -50,7 +44,7 @@ body{
     color: var(--claro);
     font-weight: 500;
     position: relative;
-    padding: 0.5rem 0 0.8rem 0; /* Aumentado o espaço inferior para a linha não cobrir a palavra */
+    padding: 0.5rem 0 0.8rem 0;
     display: inline-block;
 }
 
@@ -59,7 +53,7 @@ body{
     height: 2px;
     width: 0;
     position: absolute;
-    bottom: 2px; /* Alinhado rente à base ajustada */
+    bottom: 2px; 
     left: 0;
     background: linear-gradient(90deg, var(--primaria), var(--secundaria));
     transition: width 0.5s ease;
@@ -69,9 +63,7 @@ body{
     width: 100%;
 }
 
-/* ==========================================================================
-   3. CABEÇALHO (HOME)
-   ========================================================================== */
+/* 3. CABEÇALHO (HOME)*/
 .cabecalho{
     min-height: 100vh;
     display: flex;
@@ -101,9 +93,7 @@ h1{
     color: var(--claro);
 }
 
-/* ==========================================================================
-   4. SEÇÃO SOBRE
-   ========================================================================== */
+/* 4. SEÇÃO SOBRE */
 .sobre{
     padding: 6rem 2rem;
 }
@@ -130,9 +120,7 @@ h1{
     font-size: 1.3rem;
 }
 
-/* ==========================================================================
-   5. SEÇÃO PROJETOS
-   ========================================================================== */
+/* 5. SEÇÃO PROJETOS */
 .projetos{
     padding: 6rem 2rem;
 }
@@ -185,9 +173,7 @@ h1{
     line-height: 1.25rem;
 }
 
-/* ==========================================================================
-   6. SEÇÃO CONTATO
-   ========================================================================== */
+/* 6. SEÇÃO CONTATO */
 .contato{
     padding: 6rem 2rem;
 }
@@ -244,9 +230,7 @@ h1{
     box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
 }
 
-/* ==========================================================================
-   7. ANIMAÇÕES E FUNDO (PARTÍCULAS)
-   ========================================================================== */
+/* 7. ANIMAÇÕES E FUNDO (PARTÍCULAS) */
 .particulas{
     position: fixed;
     top: 0;
@@ -262,7 +246,7 @@ h1{
 }
 
 @keyframes flutuar{
-    0%, 100% { /* Corrigido: adicionada a vírgula para rodar a animação direito */
+    0%, 100% { 
         transform: translateY(0);
     }
     50%{
@@ -270,12 +254,10 @@ h1{
     }
 }
 
-/* ==========================================================================
-   8. AJUSTES EXCLUSIVOS PARA CELULAR (Telas de até 768px de largura)
-   ========================================================================== */
+/* 8. AJUSTES EXCLUSIVOS PARA MOBILE */
 @media (max-width: 768px) {
 
-    /* TRAVA DE SEGURANÇA: Impede o site inteiro de balançar para os lados */
+    /* Impede o site inteiro de balançar para os lados */
     html, body {
         max-width: 100%;
         overflow-x: hidden;
@@ -301,7 +283,7 @@ h1{
     }
 
     h1 {
-        font-size: 2.2rem; /* Tamanho ideal para o título principal no celular */
+        font-size: 2.2rem; /* Tamanho do título principal no celular */
         text-align: center;
         margin: 15px;
     }
@@ -331,7 +313,7 @@ h1{
         font-size: 1.1rem;
     }
 
-    /* Carrossel de Projetos para Celular (Não amassa os textos) */
+    /* ficar uma barra de rolagem horizontal no mobile */
     .projetos-caixa {
         display: flex;
         overflow-x: auto;
@@ -341,15 +323,14 @@ h1{
         margin: 0 -1rem;
         scroll-behavior: smooth;
 
-        /* Remove a barra de rolagem visual horrorosa no celular (mas mantém o movimento) */
+        /* Remove a barra de rolagem visual */
         -webkit-overflow-scrolling: touch;
     }
 
     .projeto-card {
-        flex: 0 0 81%; /* Cards com largura excelente no celular */
+        flex: 0 0 81%; /* Cards largura de celular */
         scroll-snap-align: center;
 
-        /* Remove o efeito de aumentar no touch do celular para evitar que o card suma ou corte */
         transform: none !important;
     }
 

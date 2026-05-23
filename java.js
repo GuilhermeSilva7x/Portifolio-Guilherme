@@ -110,3 +110,35 @@ ScrollReveal().reveal('.botao-form', {
     viewFactor: 0.2
 
 });
+// Define uma função chamada 'enviarWhats' que recebe o 'event' (evento) como parâmetro.
+// Geralmente, essa função é disparada quando um formulário é enviado (submit).
+function enviarWhats(event) {
+    
+    // Cancela o comportamento padrão do evento. 
+    // No caso de um formulário, evita que a página recarregue ao clicar no botão de envio.
+    event.preventDefault();
+
+    // Busca o elemento HTML com o ID 'nome' e guarda o que foi digitado nele (o valor) na constante 'nome'.
+    const nome = document.getElementById('nome').value;
+    
+    // Busca o elemento HTML com o ID 'mensagem' e guarda o texto digitado na constante 'mensagem'.
+    const mensagem = document.getElementById('mensagem').value;
+    
+    // Define o número de telefone fixo que vai receber a mensagem (incluindo o código do país: 55).
+    const telefone = '5564992517948';
+
+    // Cria a frase final juntando o texto padrão com o nome e a mensagem que o usuário digitou.
+    const texto = `Olá, meu nome é ${nome}, ${mensagem}`;
+    
+    // Transforma o texto em um formato seguro para URLs (substituindo espaços por %20, quebras de linha, etc.).
+    const msgFormatada = encodeURIComponent(texto);
+    
+    // Cria o link final do WhatsApp utilizando a API do 'wa.me', juntando o telefone e a mensagem codificada.
+    const url = `https://wa.me/${telefone}?text=${msgFormatada}`;
+    
+    // Exibe o link gerado no console do navegador (útil para testes e depuração).
+    console.log(url);
+    
+    // Abre a URL criada em uma nova aba do navegador ('_blank'), direcionando o usuário para o WhatsApp.
+    window.open(url, '_blank');
+}
