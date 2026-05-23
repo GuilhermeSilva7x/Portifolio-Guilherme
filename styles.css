@@ -274,6 +274,12 @@ h1{
    8. AJUSTES EXCLUSIVOS PARA CELULAR (Telas de até 768px de largura)
    ========================================================================== */
 @media (max-width: 768px) {
+
+    /* TRAVA DE SEGURANÇA: Impede o site inteiro de balançar para os lados */
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
     
     .menu {
         gap: 1.2rem;
@@ -308,6 +314,8 @@ h1{
 
     .sobre, .projetos, .contato {
         padding: 4rem 1rem;
+        width: 100%;
+        overflow-x: hidden;
     }
 
     .sobre-titulo, .projetos-titulo, .contatos-titulo {
@@ -329,13 +337,20 @@ h1{
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         gap: 1.2rem;
-        padding-bottom: 15px;
+        padding: 10px 20px 20px 20px;
+        margin: 0 -1rem;
         scroll-behavior: smooth;
+
+        /* Remove a barra de rolagem visual horrorosa no celular (mas mantém o movimento) */
+        -webkit-overflow-scrolling: touch;
     }
 
     .projeto-card {
-        flex: 0 0 85%; /* Cards com largura excelente no celular */
+        flex: 0 0 81%; /* Cards com largura excelente no celular */
         scroll-snap-align: center;
+
+        /* Remove o efeito de aumentar no touch do celular para evitar que o card suma ou corte */
+        transform: none !important;
     }
 
     .projeto-imagem {
