@@ -1,3 +1,6 @@
+/* ==========================================================================
+   1. ESTILOS GERAIS E VARIÁVEIS (Base para PC e Celular)
+   ========================================================================== */
 *{
     margin: 0;
     padding: 0;
@@ -19,12 +22,13 @@ html{
 }
 
 body{
-    /* cor de fundo do site */
     background-color: var(--escuro);
-    /* cor do texto */
     color: var(--claro);
 }
 
+/* ==========================================================================
+   2. NAVEGAÇÃO / MENU
+   ========================================================================== */
 .navegacao{
     position: fixed;
     top: 0;
@@ -46,7 +50,8 @@ body{
     color: var(--claro);
     font-weight: 500;
     position: relative;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0 0.8rem 0; /* Aumentado o espaço inferior para a linha não cobrir a palavra */
+    display: inline-block;
 }
 
 .menu-link::after{
@@ -54,7 +59,7 @@ body{
     height: 2px;
     width: 0;
     position: absolute;
-    bottom: 0;
+    bottom: 2px; /* Alinhado rente à base ajustada */
     left: 0;
     background: linear-gradient(90deg, var(--primaria), var(--secundaria));
     transition: width 0.5s ease;
@@ -64,6 +69,9 @@ body{
     width: 100%;
 }
 
+/* ==========================================================================
+   3. CABEÇALHO (HOME)
+   ========================================================================== */
 .cabecalho{
     min-height: 100vh;
     display: flex;
@@ -93,6 +101,9 @@ h1{
     color: var(--claro);
 }
 
+/* ==========================================================================
+   4. SEÇÃO SOBRE
+   ========================================================================== */
 .sobre{
     padding: 6rem 2rem;
 }
@@ -119,19 +130,27 @@ h1{
     font-size: 1.3rem;
 }
 
-
+/* ==========================================================================
+   5. SEÇÃO PROJETOS
+   ========================================================================== */
 .projetos{
-
     padding: 6rem 2rem;
-
 }
+
+.projetos-titulo{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
 .projetos-caixa{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-   gap: 2rem;
-   max-width: 1200px;
-   margin: 0 auto;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
+
 .projeto-card{
     background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
@@ -141,43 +160,44 @@ h1{
     transition: all 0.5s ease;
     cursor: pointer;
 }
-.projetos-titulo{
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-}
+
 .projeto-card:hover{
-    box-shadow: 0 10 20px rgba(79, 70, 229, 0.2);
-    transform: translateY(-10px ) scale(1.03);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2); /* Corrigido: adicionado px */
+    transform: translateY(-10px) scale(1.03);
 }
+
 .projeto-imagem{
     height: 200px;
     width: 100%;
     object-fit: cover;
 }
+
 .info-projeto{
     margin-bottom: 5px;
-
 }
+
 .caixa-texto-projetos{
     padding: 1.5rem;
 }
+
 .paragrafo-projetos{
     color: rgba(226, 232, 240, 0.8);
     line-height: 1.25rem;
-
 }
 
+/* ==========================================================================
+   6. SEÇÃO CONTATO
+   ========================================================================== */
 .contato{
     padding: 6rem 2rem;
-
 }
+
 .contatos-titulo{
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 50px;
-
 }
+
 .formulario-contato{
     max-width: 600px;
     margin: 0 auto;
@@ -189,22 +209,24 @@ h1{
 }
 
 .campo-form{
-width: 100%;
-padding: 1rem;
-background: rgba(255, 255, 255, 0.05);
-border-radius: 8px;
-color: var(--claro);
-border: 1px solid var(--vidro);
-outline: none;
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: var(--claro);
+    border: 1px solid var(--vidro);
+    outline: none;
 }
+
 .grupo-form{
     margin-bottom: 1.5rem;
-
 }
+
 .campo-form:focus{
     border-color: var(--secundaria);
     box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
 }
+
 .botao-form{
     color: var(--claro);
     background: linear-gradient(45deg, var(--primaria), var(--secundaria));
@@ -216,10 +238,15 @@ outline: none;
     width: 100%;
     transition: all 0.5s ease;
 }
+
 .botao-form:hover{
     transform: translateY(-4px);
     box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
 }
+
+/* ==========================================================================
+   7. ANIMAÇÕES E FUNDO (PARTÍCULAS)
+   ========================================================================== */
 .particulas{
     position: fixed;
     top: 0;
@@ -232,15 +259,99 @@ outline: none;
         radial-gradient(circle at 10% 20%, var(--primaria) 0%, transparent 20%),
         radial-gradient(circle at 80% 90%, var(--secundaria) 0%, transparent 20%),
         var(--mais-escuro);
-        
 }
 
 @keyframes flutuar{
-    0% 100 %{
+    0%, 100% { /* Corrigido: adicionada a vírgula para rodar a animação direito */
         transform: translateY(0);
     }
     50%{
         transform: translateY(-20px);
     }
+}
+
+/* ==========================================================================
+   8. AJUSTES EXCLUSIVOS PARA CELULAR (Telas de até 768px de largura)
+   ========================================================================== */
+@media (max-width: 768px) {
     
+    .menu {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+    }
+    
+    .navegacao {
+        padding: 1rem;
+    }
+
+    .cabecalho {
+        padding-top: 80px;
+        min-height: calc(100vh - 80px);
+    }
+
+    .foto-perfil {
+        width: 140px;
+        height: 140px;
+    }
+
+    h1 {
+        font-size: 2.2rem; /* Tamanho ideal para o título principal no celular */
+        text-align: center;
+        margin: 15px;
+    }
+
+    .cabecalho-sub-titulo {
+        font-size: 1.1rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .sobre, .projetos, .contato {
+        padding: 4rem 1rem;
+    }
+
+    .sobre-titulo, .projetos-titulo, .contatos-titulo {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .sobre-eu {
+        padding: 1.2rem;
+    }
+
+    .sobre-eu-texto {
+        font-size: 1.1rem;
+    }
+
+    /* Carrossel de Projetos para Celular (Não amassa os textos) */
+    .projetos-caixa {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1.2rem;
+        padding-bottom: 15px;
+        scroll-behavior: smooth;
+    }
+
+    .projeto-card {
+        flex: 0 0 85%; /* Cards com largura excelente no celular */
+        scroll-snap-align: center;
+    }
+
+    .projeto-imagem {
+        height: 180px;
+    }
+
+    .caixa-texto-projetos {
+        padding: 1.2rem;
+    }
+
+    .paragrafo-projetos {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    .formulario-contato {
+        padding: 1.5rem;
+    }
 }
