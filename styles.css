@@ -1,70 +1,81 @@
-*{
+/* RESET E VARIÁVEIS GLOBAIS */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-:root{
-    --primaria : #4f46e5;
-    --secundaria : #7c3aed;
-    --escuro : #0f172a;
-    --mais-escuro : #0a0f1c;
-    --claro : #e2e8f0;
+:root {
+    --primaria: #4f46e5;
+    --secundaria: #7c3aed;
+    --escuro: #0f172a;
+    --mais-escuro: #0a0f1c;
+    --claro: #e2e8f0;
     --vidro: rgba(255, 255, 255, 0.1);
 }
 
-body{
+body {
     background-color: var(--escuro);
     color: var(--claro);
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
-   /*2. NAVEGAÇÃO / MENU */
-.navegacao{
+
+/* NAVEGAÇÃO / MENU CENTRALIZADO */
+.navegacao {
     position: fixed;
     top: 0;
-    background: rgba(15, 23, 42, 0.8);
+    left: 0;
     width: 100%;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
     z-index: 100;
-    padding : 1.5rem;
-}
-
-.menu{
     display: flex;
     justify-content: center;
-    list-style: none;
-    gap: 3rem;
+    align-items: center;
+    padding: 1.2rem 0;
 }
 
-.menu-link{
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-link {
     text-decoration: none;
     color: var(--claro);
     font-weight: 500;
     position: relative;
-    padding: 0.5rem 0 0.8rem 0;
+    padding: 0.5rem 0;
     display: inline-block;
 }
 
-.menu-link::after{
+.menu-link::after {
     content: '';
     height: 2px;
     width: 0;
     position: absolute;
-    bottom: 2px; 
+    bottom: 0;
     left: 0;
     background: linear-gradient(90deg, var(--primaria), var(--secundaria));
-    transition: width 0.5s ease;
+    transition: width 0.3s ease;
 }
 
-.menu-link:hover::after{
+.menu-link:hover::after {
     width: 100%;
 }
 
-/* 3. CABEÇALHO (HOME)*/
-.cabecalho{
+/* CABEÇALHO */
+.cabecalho {
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -72,40 +83,40 @@ body{
     flex-direction: column;
 }
 
-.foto-perfil{
-    width: 200px;
-    height: 200px;
-    box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
-    border-radius: 50%;
+.foto-perfil {
+    width: 180px;
+    height: 180px;
+    box-shadow: 0 0 25px rgba(79, 70, 229, 0.4);
     border: 4px solid var(--vidro);
     animation: flutuar 5s ease-in-out infinite;
+    object-fit: cover;
 }
 
-h1{
+h1 {
     font-size: 3.5rem;
     color: var(--primaria);
     font-weight: bold;
-    margin: 20px;
+    margin: 15px 0 5px 0;
 }
 
-.cabecalho-sub-titulo{
-    font-size: 1.5rem;
+.cabecalho-sub-titulo {
+    font-size: 1.4rem;
     color: var(--claro);
 }
 
-/* 4. SEÇÃO SOBRE */
-.sobre{
+/* SEÇÃO SOBRE MIM */
+.sobre {
     padding: 6rem 2rem;
 }
 
-.sobre-titulo{
-    font-size: 3rem;
+.sobre-titulo {
+    font-size: 2.8rem;
     color: var(--claro);
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
-.sobre-eu{
+.sobre-eu {
     padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
@@ -115,76 +126,98 @@ h1{
     background: rgba(255, 255, 255, 0.05);
 }
 
-.sobre-eu-texto{
+.sobre-eu-texto {
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
 }
 
-/* 5. SEÇÃO PROJETOS */
-.projetos{
+/* SEÇÃO HABILIDADES */
+.habilidades {
+    padding: 4rem 2rem;
+}
+
+.habilidades-caixa {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--vidro);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.progress {
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* SEÇÃO PROJETOS */
+.projetos {
     padding: 6rem 2rem;
 }
 
-.projetos-titulo{
+.projetos-titulo {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
-.projetos-caixa{
+.projetos-caixa {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
-.projeto-card{
+.projeto-card {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
     backdrop-filter: blur(5px);
     border: 1px solid var(--vidro);
     overflow: hidden;
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
     cursor: pointer;
 }
 
-.projeto-card:hover{
-    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2); /* Corrigido: adicionado px */
-    transform: translateY(-10px) scale(1.03);
+.projeto-card:hover {
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+    transform: translateY(-8px) scale(1.02);
 }
 
-.projeto-imagem{
-    height: 200px;
+.projeto-imagem {
+    height: 190px;
     width: 100%;
     object-fit: cover;
 }
 
-.info-projeto{
-    margin-bottom: 5px;
-}
-
-.caixa-texto-projetos{
+.caixa-texto-projetos {
     padding: 1.5rem;
 }
 
-.paragrafo-projetos{
-    color: rgba(226, 232, 240, 0.8);
-    line-height: 1.25rem;
+.info-projeto {
+    margin-bottom: 8px;
+    color: var(--claro);
 }
 
-/* 6. SEÇÃO CONTATO */
-.contato{
+.paragrafo-projetos {
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 1.4;
+}
+
+/* CONTATO */
+.contato {
     padding: 6rem 2rem;
 }
 
-.contatos-titulo{
+.contatos-titulo {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
-.formulario-contato{
+.formulario-contato {
     max-width: 600px;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.05);
@@ -194,7 +227,7 @@ h1{
     border-radius: 16px;
 }
 
-.campo-form{
+.campo-form {
     width: 100%;
     padding: 1rem;
     background: rgba(255, 255, 255, 0.05);
@@ -204,16 +237,16 @@ h1{
     outline: none;
 }
 
-.grupo-form{
+.grupo-form {
     margin-bottom: 1.5rem;
 }
 
-.campo-form:focus{
+.campo-form:focus {
     border-color: var(--secundaria);
     box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
 }
 
-.botao-form{
+.botao-form {
     color: var(--claro);
     background: linear-gradient(45deg, var(--primaria), var(--secundaria));
     padding: 1rem 2rem;
@@ -222,16 +255,16 @@ h1{
     cursor: pointer;
     font-weight: bold;
     width: 100%;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
-.botao-form:hover{
-    transform: translateY(-4px);
+.botao-form:hover {
+    transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
 }
 
-/* 7. ANIMAÇÕES E FUNDO (PARTÍCULAS) */
-.particulas{
+/* PARTÍCULAS E ANIMAÇÃO */
+.particulas {
     position: fixed;
     top: 0;
     left: 0;
@@ -245,36 +278,42 @@ h1{
         var(--mais-escuro);
 }
 
-@keyframes flutuar{
-    0%, 100% { 
-        transform: translateY(0);
-    }
-    50%{
-        transform: translateY(-20px);
-    }
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
 }
 
-/* 8. AJUSTES EXCLUSIVOS PARA MOBILE */
-@media (max-width: 768px) {
+/* SUPORTE MODO CLARO (DARK MODE JS) */
+body.bg-dark-mode {
+    background-color: #f8fafc !important;
+    color: #0f172a !important;
+}
 
-    /* Impede o site inteiro de balançar para os lados */
-    html, body {
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-    
+body.bg-dark-mode .navegacao {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+body.bg-dark-mode .menu-link,
+body.bg-dark-mode .info-projeto,
+body.bg-dark-mode .sobre-titulo,
+body.bg-dark-mode .cabecalho-sub-titulo {
+    color: #0f172a;
+}
+
+/* AJUSTES MOBILE */
+@media (max-width: 768px) {
     .menu {
-        gap: 1.2rem;
+        gap: 1rem;
         flex-wrap: wrap;
     }
-    
+
     .navegacao {
-        padding: 1rem;
+        padding: 0.8rem 1rem;
     }
 
     .cabecalho {
-        padding-top: 80px;
-        min-height: calc(100vh - 80px);
+        padding-top: 90px;
+        min-height: calc(100vh - 90px);
     }
 
     .foto-perfil {
@@ -283,71 +322,24 @@ h1{
     }
 
     h1 {
-        font-size: 2.2rem; /* Tamanho do título principal no celular */
-        text-align: center;
-        margin: 15px;
+        font-size: 2.2rem;
     }
 
-    .cabecalho-sub-titulo {
-        font-size: 1.1rem;
-        text-align: center;
-        padding: 0 1rem;
+    .sobre, .projetos, .contato, .habilidades {
+        padding: 3.5rem 1rem;
     }
 
-    .sobre, .projetos, .contato {
-        padding: 4rem 1rem;
-        width: 100%;
-        overflow-x: hidden;
-    }
-
-    .sobre-titulo, .projetos-titulo, .contatos-titulo {
-        font-size: 2rem;
-        margin-bottom: 30px;
-    }
-
-    .sobre-eu {
-        padding: 1.2rem;
-    }
-
-    .sobre-eu-texto {
-        font-size: 1.1rem;
-    }
-
-    /* ficar uma barra de rolagem horizontal no mobile */
     .projetos-caixa {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         gap: 1.2rem;
-        padding: 10px 20px 20px 20px;
-        margin: 0 -1rem;
-        scroll-behavior: smooth;
-
-        /* Remove a barra de rolagem visual */
-        -webkit-overflow-scrolling: touch;
+        padding-bottom: 20px;
     }
 
     .projeto-card {
-        flex: 0 0 81%; /* Cards largura de celular */
+        flex: 0 0 85%;
         scroll-snap-align: center;
-
         transform: none !important;
-    }
-
-    .projeto-imagem {
-        height: 180px;
-    }
-
-    .caixa-texto-projetos {
-        padding: 1.2rem;
-    }
-
-    .paragrafo-projetos {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-
-    .formulario-contato {
-        padding: 1.5rem;
     }
 }
